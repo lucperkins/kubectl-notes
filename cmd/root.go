@@ -2,21 +2,14 @@ package cmd
 
 import (
 	"fmt"
-	"log"
 	"os"
 
 	"github.com/spf13/cobra"
 )
 
 var rootCmd = &cobra.Command{
-	Use:  "kubectl-docs",
-	RunE: rootRunE,
-}
-
-func rootRunE(_ *cobra.Command, _ []string) error {
-	log.Println("Hello world")
-
-	return nil
+	Use:  "kubectl-notes",
+	Short: "A kubectl extension for manipulating Pod notes",
 }
 
 func Execute() {
