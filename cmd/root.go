@@ -17,7 +17,7 @@ var (
 
 func init() {
 	rootCmd.PersistentFlags().StringP("namespace", "n", "default", "The Kubernetes namespace")
-	viper.Set("namespace", rootCmd.PersistentFlags().Lookup("namespace"))
+	viper.BindPFlag("namespace", rootCmd.PersistentFlags().Lookup("namespace"))
 }
 
 func Execute() {
