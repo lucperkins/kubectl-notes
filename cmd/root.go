@@ -2,14 +2,22 @@ package cmd
 
 import (
 	"fmt"
+	"github.com/spf13/viper"
 	"os"
 
 	"github.com/spf13/cobra"
 )
 
-var rootCmd = &cobra.Command{
-	Use:  "kubectl-notes",
-	Short: "A kubectl extension for manipulating Pod notes",
+var (
+	rootCmd = &cobra.Command{
+		Use:  "kubectl-notes",
+		Short: "A kubectl extension for manipulating Pod notes",
+	}
+)
+
+func init() {
+	rootCmd.PersistentFlags().StringP("namespace", "n", "default", "The Kubernetes namespace")
+	viper.Set("namespace", rootCmd.PersistentFlags().Lookup("namespace"))
 }
 
 func Execute() {
