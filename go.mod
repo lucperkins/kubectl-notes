@@ -1,4 +1,4 @@
-module github.com/lucperkins/kubectl-docs
+module github.com/lucperkins/kubectl-notes
 
 require (
 	github.com/BurntSushi/toml v0.3.1 // indirect
