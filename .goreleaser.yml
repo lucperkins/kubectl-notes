@@ -15,7 +15,7 @@ brew:
   name: kubectl-notes
   github:
     owner: lucperkins
-    name: homebrew-kubectl-plugins
+    name: homebrew-formulas
   homepage: "https://github.com/lucperkins/kubectl-notes"
   description: "kubectl extension for working with notes for Kubernetes Pods"
   test:
