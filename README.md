@@ -7,11 +7,18 @@ This is an extremely simple and useless extension for [kubectl](https://kubernet
 Here's an example:
 
 ```bash
+# Add a note to a Pod
 kubectl notes add --namespace my-ns --pod my-pod "This Pod has been acting shady"
 
+# Fetch a note from a Pod
 kubectl notes get --namespace my-ns --pod my-pod
 This Pod has been acting shady
+
+# Delete a note
+kubectl notes delete --namespace my-ns --pod my-pod
 ```
+
+You can substitute `-n` for `--namespace` and `-p` for `--pod`.
 
 The `default` namespace will be used if none is provided.
 
