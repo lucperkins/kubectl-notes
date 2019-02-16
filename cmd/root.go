@@ -2,9 +2,10 @@ package cmd
 
 import (
 	"fmt"
+	"os"
+
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
-	"os"
 )
 
 func init() {
@@ -16,14 +17,14 @@ func init() {
 
 	rootCmd.SetVersionTemplate("kubectl-notes v{{ .Version }}\n")
 	rootCmd.SetHelpCommand(&cobra.Command{
-		Use: "-no-help",
+		Use:    "-no-help",
 		Hidden: true,
 	})
 }
 
 var rootCmd = &cobra.Command{
-	Use: "kubectl-notes",
-	Short: "A kubectl extension for working with notes for Kubernetes Pods",
+	Use:     "kubectl-notes",
+	Short:   "A kubectl extension for working with notes for Kubernetes Pods",
 	Version: VERSION,
 }
 

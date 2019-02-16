@@ -10,9 +10,9 @@ func init() {
 }
 
 var deleteCmd = &cobra.Command{
-	Use: "delete",
+	Use:   "delete",
 	Short: "Delete a Pod's note",
-	Run: deleteCmdRun,
+	Run:   deleteCmdRun,
 }
 
 func deleteCmdRun(_ *cobra.Command, _ []string) {

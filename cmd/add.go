@@ -10,10 +10,10 @@ func init() {
 }
 
 var addCmd = &cobra.Command{
-	Use: "add",
+	Use:   "add",
 	Short: "Add a note to a specified Pod",
-	Args: cobra.ExactArgs(1),
-	Run: addCmdRun,
+	Args:  cobra.ExactArgs(1),
+	Run:   addCmdRun,
 }
 
 func addCmdRun(_ *cobra.Command, args []string) {

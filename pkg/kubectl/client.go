@@ -2,10 +2,11 @@ package kubectl
 
 import (
 	"fmt"
+	"os"
+
 	"github.com/spf13/viper"
 	"k8s.io/cli-runtime/pkg/genericclioptions"
 	"k8s.io/client-go/kubernetes"
-	"os"
 )
 
 type Client struct {

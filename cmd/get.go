@@ -10,9 +10,9 @@ func init() {
 }
 
 var getCmd = &cobra.Command{
-	Use: "get",
+	Use:   "get",
 	Short: "Fetch the note (if any) from a Kubernetes Pod",
-	Run: getCmdRun,
+	Run:   getCmdRun,
 }
 
 func getCmdRun(_ *cobra.Command, _ []string) {
