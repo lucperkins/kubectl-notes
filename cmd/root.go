@@ -17,7 +17,6 @@ func init() {
 
 	rootCmd.SetVersionTemplate("kubectl-notes v{{ .Version }}\n")
 	rootCmd.SetHelpCommand(&cobra.Command{
-		Use:    "-no-help",
 		Hidden: true,
 	})
 }
