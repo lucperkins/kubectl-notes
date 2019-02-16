@@ -1,6 +1,6 @@
 package main
 
-import "github.com/lucperkins/kubectl-docs/cmd"
+import "github.com/lucperkins/kubectl-notes/cmd"
 
 func main() {
 	cmd.Execute()
