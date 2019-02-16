@@ -24,10 +24,13 @@ The `default` namespace will be used if none is provided.
 
 ## Installation
 
-You can install it using `go install`:
+You can install kubectl-notes using either `go install` or [Homebrew](https://brew.sh):
 
 ```bash
 go install github.com/lucperkins/kubectl-notes
+
+# Homebrew
+brew install lucperkins/brew/kubectl-notes
 ```
 
 If `$GOPATH/bin` is on your `PATH`, you can invoke it directly from `kubectl` as in the example [above](#usage).
