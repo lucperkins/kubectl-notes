@@ -8,3 +8,6 @@ imports:
 	goimports -w .
 
 spruce-up: fmt tidy imports
+
+release:
+	goreleaser release --rm-dist
