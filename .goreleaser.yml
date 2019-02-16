@@ -1,0 +1,32 @@
+before:
+  hooks:
+  - go mod download
+builds:
+- env:
+  - CGO_ENABLED=0
+archive:
+  replacements:
+    darwin: Darwin
+    linux: Linux
+    windows: Windows
+    386: i386
+    amd64: x86_64
+brew:
+  name: kubectl-notes
+  github:
+    owner: lucperkins
+    name: homebrew-kubectl-plugins
+  homepage: "https://github.com/lucperkins/kubectl-notes"
+  description: "kubectl extension for working with notes for Kubernetes Pods"
+  test:
+    system "#{bin}/kubectl-notes --version"
+checksum:
+  name_template: 'checksums.txt'
+snapshot:
+  name_template: "{{ .Tag }}-next"
+changelog:
+  sort: asc
+  filters:
+    exclude:
+    - '^docs:'
+    - '^test:'
