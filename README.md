@@ -13,6 +13,8 @@ kubectl notes get --namespace my-ns --pod my-pod
 This Pod has been acting shady
 ```
 
+The `default` namespace will be used if none is provided.
+
 ## Installation
 
 You can install it using `go install`:
