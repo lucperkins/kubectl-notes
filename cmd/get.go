@@ -1,21 +1,26 @@
 package cmd
 
 import (
-	"fmt"
+	"github.com/lucperkins/kubectl-docs/pkg/kubectl"
 	"github.com/spf13/cobra"
-	"github.com/spf13/viper"
 )
 
 func init() {
-	rootCmd.AddCommand(getCmd())
+	rootCmd.AddCommand(getCmd)
 }
 
-func getCmd() *cobra.Command {
-	return &cobra.Command{
-		Use: "get",
-		Short: "Fetch the note from a specified Pod",
-		Run: func(_ *cobra.Command, _ []string) {
-			fmt.Printf("Namespace: %s\n", viper.GetString("namespace"))
-		},
-	}
+var getCmd = &cobra.Command{
+	Use: "get",
+	Short: "Fetch the note (if any) from a Kubernetes Pod",
+	Run: getCmdRun,
+}
+
+func getCmdRun(_ *cobra.Command, _ []string) {
+	client, err := kubectl.NewClient()
+
+	exitOnErr(err)
+
+	requirePodName()
+
+	client.GetNote()
 }
