@@ -15,6 +15,10 @@ func init() {
 	exitOnErr(viper.BindPFlag("pod", rootCmd.PersistentFlags().Lookup("pod")))
 
 	rootCmd.SetVersionTemplate("kubectl-notes v{{ .Version }}\n")
+	rootCmd.SetHelpCommand(&cobra.Command{
+		Use: "-no-help",
+		Hidden: true,
+	})
 }
 
 var rootCmd = &cobra.Command{
