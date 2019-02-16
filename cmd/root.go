@@ -13,11 +13,14 @@ func init() {
 
 	rootCmd.PersistentFlags().StringP("pod", "p", "", "The Kubernetes Pod")
 	exitOnErr(viper.BindPFlag("pod", rootCmd.PersistentFlags().Lookup("pod")))
+
+	rootCmd.SetVersionTemplate("kubectl-notes v{{ .Version }}\n")
 }
 
 var rootCmd = &cobra.Command{
 	Use: "kubectl-notes",
 	Short: "A kubectl extension for working with notes for Kubernetes Pods",
+	Version: VERSION,
 }
 
 func Execute() {
