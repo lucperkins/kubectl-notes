@@ -16,9 +16,7 @@ var getCmd = &cobra.Command{
 }
 
 func getCmdRun(_ *cobra.Command, _ []string) {
-	client, err := kubectl.NewClient()
-
-	exitOnErr(err)
+	client := kubectl.NewClient()
 
 	requirePodName()
 

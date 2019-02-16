@@ -1,9 +1,11 @@
 package kubectl
 
 import (
+	"fmt"
 	"github.com/spf13/viper"
 	"k8s.io/cli-runtime/pkg/genericclioptions"
 	"k8s.io/client-go/kubernetes"
+	"os"
 )
 
 type Client struct {
@@ -11,24 +13,27 @@ type Client struct {
 	namespace string
 }
 
-func NewClient() (*Client, error) {
+func NewClient() *Client {
 	flags := genericclioptions.NewConfigFlags()
 	restConfig, err := flags.ToRESTConfig()
 
-	if err != nil {
-		return nil, err
-	}
+	exitOnErr(err)
 
 	k8s, err := kubernetes.NewForConfig(restConfig)
 
-	if err != nil {
-		return nil, err
-	}
+	exitOnErr(err)
 
 	ns := viper.GetString("namespace")
 
 	return &Client{
 		k8s:       k8s,
 		namespace: ns,
-	}, nil
+	}
+}
+
+func exitOnErr(err error) {
+	if err != nil {
+		fmt.Println(err)
+		os.Exit(1)
+	}
 }

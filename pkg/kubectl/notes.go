@@ -2,10 +2,8 @@ package kubectl
 
 import (
 	"fmt"
-	"k8s.io/api/core/v1"
-	"os"
-
 	"github.com/spf13/viper"
+	"k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	corev1 "k8s.io/client-go/kubernetes/typed/core/v1"
 )
@@ -44,9 +42,11 @@ func (c *Client) AddNote(note string) {
 	fmt.Printf("Successfully added note to %s/%s\n", c.namespace, p)
 }
 
-func exitOnErr(err error) {
-	if err != nil {
-		fmt.Println(err)
-		os.Exit(1)
-	}
+func (c *Client) DeleteNote() {
+	p := getPodName()
+	pod, err := c.getPod(p)
+	exitOnErr(err)
+	pod.Annotations["note"] = ""
+	_, err = c.pods().Update(pod)
+	exitOnErr(err)
 }
