@@ -17,7 +17,7 @@ brew:
   name: kubectl-notes
   github:
     owner: lucperkins
-    name: homebrew-brew
+    name: homebrew-tap
   homepage: "https://github.com/lucperkins/kubectl-notes"
   description: "kubectl extension for working with notes for Kubernetes Pods"
   test:
