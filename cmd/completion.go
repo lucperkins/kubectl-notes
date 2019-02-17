@@ -41,10 +41,10 @@ func contains(sl []string, s string) bool {
 
 func completionCmdPreRunE(cmd *cobra.Command, args []string) error {
 	shell := args[0]
-	validShell := cmd.ValidArgs
+	validShells := cmd.ValidArgs
 
-	if !contains(validShell, shell) {
-		return errors.New(fmt.Sprintf("The shell %s is not recognized. Valid shells: %s", shell, validShell))
+	if !contains(validShells, shell) {
+		return errors.New(fmt.Sprintf("The shell %s is not recognized. Valid shells: %s", shell, validShells))
 	}
 
 	return nil
