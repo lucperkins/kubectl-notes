@@ -1,5 +1,3 @@
-env_files:
-  github_token: ~/.github-token
 before:
   hooks:
   - go mod download
