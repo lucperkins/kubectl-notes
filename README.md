@@ -30,7 +30,8 @@ You can install kubectl-notes using either `go install` or [Homebrew](https://br
 go install github.com/lucperkins/kubectl-notes
 
 # Homebrew
-brew install lucperkins/brew/kubectl-notes
+brew tap lucperkins/tap
+brew install kubectl-notes
 ```
 
 If `$GOPATH/bin` is on your `PATH`, you can invoke it directly from `kubectl` as in the example [above](#usage).
@@ -38,3 +39,18 @@ If `$GOPATH/bin` is on your `PATH`, you can invoke it directly from `kubectl` as
 ## How it works
 
 `kubectl-notes` simply adds an annotation to the Pod with the key `note`.
+
+## Auto-completion
+
+`kubectl-notes` also offers CLI auto-completion:
+
+```bash
+# Bash
+source <(kubectl-notes completion bash)
+
+# Zsh
+source <(kubectl-notes completion zsh)
+
+# Oh My Zsh
+kubectl-notes completion zsh > "${fpath[1]}/_kubectl-notes"
+```
