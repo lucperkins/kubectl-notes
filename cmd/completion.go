@@ -3,8 +3,9 @@ package cmd
 import (
 	"errors"
 	"fmt"
-	"github.com/spf13/cobra"
 	"os"
+
+	"github.com/spf13/cobra"
 )
 
 func init() {
@@ -12,17 +13,17 @@ func init() {
 }
 
 var completionCmd = &cobra.Command{
-	Use: "completion",
-	Short: "Generates auto-complete scripts",
-	Args: cobra.ExactArgs(1),
-	Run: completionCmdRun,
+	Use:       "completion",
+	Short:     "Generates auto-complete scripts",
+	Args:      cobra.ExactArgs(1),
+	Run:       completionCmdRun,
 	ValidArgs: []string{"bash", "zsh"},
-	PreRunE: completionCmdPreRunE,
+	PreRunE:   completionCmdPreRunE,
 }
 
 func completionCmdRun(_ *cobra.Command, args []string) {
 	shell := args[0]
-	switch  shell {
+	switch shell {
 	case "bash":
 		exitOnErr(rootCmd.GenBashCompletion(os.Stdout))
 	case "zsh":
