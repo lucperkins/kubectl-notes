@@ -4,8 +4,9 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/lucperkins/ezk8sclient"
+
 	"github.com/spf13/viper"
-	"k8s.io/cli-runtime/pkg/genericclioptions"
 	"k8s.io/client-go/kubernetes"
 )
 
@@ -15,13 +16,7 @@ type Client struct {
 }
 
 func NewClient() *Client {
-	flags := genericclioptions.NewConfigFlags()
-	restConfig, err := flags.ToRESTConfig()
-
-	exitOnErr(err)
-
-	k8s, err := kubernetes.NewForConfig(restConfig)
-
+	k8s, err := ezk8sclient.NewClient()
 	exitOnErr(err)
 
 	ns := viper.GetString("namespace")
